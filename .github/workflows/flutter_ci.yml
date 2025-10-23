@@ -1,0 +1,52 @@
+name: Flutter CI - Build & Release
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - develop
+  pull_request:
+    branches:
+      - main
+      - master
+
+jobs:
+  build:
+    name: Build & Release Flutter App
+    runs-on: macos-latest  # Use macOS for iOS + Android builds
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: 'stable'
+
+      - name: Flutter Pub Get
+        run: flutter pub get
+
+      - name: Build Android APK (release)
+        run: flutter build apk --release --split-per-abi
+
+      # Optional: iOS build (remove this if you only need Android)
+      - name: Build iOS (no codesign)
+        run: flutter build ios --no-codesign
+
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: Flutter Build Outputs
+          path: |
+            build/app/outputs/apk/release/
+            build/ios/iphoneos/
+
+      # Optional: Auto Release to GitHub Releases
+      - name: Publish to GitHub Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "build/app/outputs/apk/release/*.apk"
+          tag: v1.0.${{ github.run_number }}
+          token: ${{ secrets.TOKEN }}

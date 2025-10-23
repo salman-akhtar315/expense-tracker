@@ -1,0 +1,34 @@
+# Flutter build and cache
+build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.packages
+.pub-cache/
+.pub/
+
+# Android
+android/.gradle/
+android/app/release/
+
+# iOS
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework/
+ios/Flutter/Flutter.podspec
+
+# Windows, macOS, Linux builds
+windows/
+macos/
+linux/
+
+# IDE & misc
+.idea/
+.vscode/
+*.iml
+*.log
+*.lock
+
+# Others
+*.tmp
+*.swp

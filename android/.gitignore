@@ -1,0 +1,47 @@
+# Flutter/Dart/Pub related
+.dart_tool/
+.packages
+.pub-cache/
+.pub/
+
+# Build outputs
+build/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+
+# Android specific
+*.apk
+*.aab
+*.aar
+*.iml
+*.hprof
+.gradle/
+local.properties
+.idea/
+
+# Web outputs
+web/.dart_tool/
+web/build/
+
+# macOS & Windows
+macos/Flutter/ephemeral/
+windows/flutter/ephemeral/
+
+
+
+
+
+#gradle-wrapper.jar
+#/.gradle
+#/captures/
+#/gradlew
+#/gradlew.bat
+#/local.properties
+#GeneratedPluginRegistrant.java
+#.cxx/
+#
+## Remember to never publicly share your keystore.
+## See https://flutter.dev/to/reference-keystore
+#key.properties
+#**/*.keystore
+#**/*.jks
